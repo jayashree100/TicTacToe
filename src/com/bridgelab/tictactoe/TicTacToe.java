@@ -29,6 +29,7 @@ public class TicTacToe {
 		System.out.println(gameArray[0] + " | " + gameArray[1] + "|" + gameArray[2]);
 		System.out.println(gameArray[3] + " | " + gameArray[4] + "|" + gameArray[5]);
 		System.out.println(gameArray[6] + " | " + gameArray[7] + "|" + gameArray[8]);
+
 	}
 
 	public static void moveLocation() {
@@ -86,17 +87,16 @@ public class TicTacToe {
 				System.out.println("invalid position ! restart game");
 				return;
 			}
-           winner(userTurn);
+			winner(userTurn);
+		} else if (user == '2') {
+			turnCount = turnCount + 1;
+			System.out.println("Computer turn");
+			if (turnCount == 2 || turnCount == 3 || turnCount == 4)
+				blockUser();
+			else
+				comLocation();
+			winner(computerTurn);
 		}
-		else if (user == '2') {
-            turnCount = turnCount + 1;
-            System.out.println("Computer turn");
-            if (turnCount == 2 || turnCount == 3 || turnCount == 4)
-                blockUser();
-            else
-                comLocation();
-            winner(computerTurn);
-        }
 	}
 
 	public static void comLocation() {
@@ -176,57 +176,56 @@ public class TicTacToe {
 				System.out.println("\n\n Computer Wins the Game\n");
 			}
 			exitCode = '1';
+		} else if (gameArray[3] != ' ' && gameArray[3] == gameArray[4] && gameArray[4] == gameArray[5]) {
+			if (gameArray[3] == symbol) {
+				System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+			} else {
+				System.out.println("\n\nComputer ONE WINS THE GAME\n");
+			}
+			exitCode = '1';
+		} else if (gameArray[7] != ' ' && gameArray[6] == gameArray[7] && gameArray[7] == gameArray[8]) {
+			if (gameArray[7] == symbol) {
+				System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+			} else {
+				System.out.println("\n\nComputer ONE WINS THE GAME\n");
+			}
+			exitCode = '1';
+		} else if (gameArray[6] != ' ' && gameArray[0] == gameArray[3] && gameArray[3] == gameArray[6]) {
+			if (gameArray[6] == symbol) {
+				System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+			} else {
+				System.out.println("\n\nComputer ONE WINS THE GAME\n");
+			}
+			exitCode = '1';
+		} else if (gameArray[1] != ' ' && gameArray[1] == gameArray[4] && gameArray[4] == gameArray[7]) {
+			if (gameArray[1] == symbol) {
+				System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+			} else {
+				System.out.println("\n\nComputer ONE WINS THE GAME\n");
+			}
+			exitCode = '1';
+		} else if (gameArray[5] != ' ' && gameArray[2] == gameArray[5] && gameArray[5] == gameArray[8]) {
+			if (gameArray[5] == symbol) {
+				System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+			} else {
+				System.out.println("\n\nComputer ONE WINS THE GAME\n");
+			}
+			exitCode = '1';
+		} else if (gameArray[4] != ' ' && gameArray[0] == gameArray[4] && gameArray[4] == gameArray[8]) {
+			if (gameArray[4] == symbol) {
+				System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+			} else {
+				System.out.println("\n\nComputer ONE WINS THE GAME\n");
+			}
+			exitCode = '1';
+		} else if (gameArray[2] != ' ' && gameArray[2] == gameArray[4] && gameArray[4] == gameArray[6]) {
+			if (gameArray[2] == symbol) {
+				System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
+			} else {
+				System.out.println("\n\n Computer ONE WINS THE GAME\n");
+			}
+			exitCode = '1';
 		}
-		else if (gameArray[3] != ' ' && gameArray[3] == gameArray[4] && gameArray[4] == gameArray[5]) {
-            if (gameArray[3] == symbol) {
-                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
-            } else {
-                System.out.println("\n\nComputer ONE WINS THE GAME\n");
-            }
-            exitCode = '1';
-        } else if (gameArray[7] != ' ' && gameArray[6] == gameArray[7] && gameArray[7] == gameArray[8]) {
-            if (gameArray[7] == symbol) {
-                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
-            } else {
-                System.out.println("\n\nComputer ONE WINS THE GAME\n");
-            }
-            exitCode = '1';
-        } else if (gameArray[6] != ' ' && gameArray[0] == gameArray[3] && gameArray[3] == gameArray[6]) {
-            if (gameArray[6] == symbol) {
-                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
-            } else {
-                System.out.println("\n\nComputer ONE WINS THE GAME\n");
-            }
-            exitCode = '1';
-        } else if (gameArray[1] != ' ' && gameArray[1] == gameArray[4] && gameArray[4] == gameArray[7]) {
-            if (gameArray[1] == symbol) {
-                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
-            } else {
-                System.out.println("\n\nComputer ONE WINS THE GAME\n");
-            }
-            exitCode = '1';
-        } else if (gameArray[5] != ' ' && gameArray[2] == gameArray[5] && gameArray[5] == gameArray[8]) {
-            if (gameArray[5] == symbol) {
-                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
-            } else {
-                System.out.println("\n\nComputer ONE WINS THE GAME\n");
-            }
-            exitCode = '1';
-        } else if (gameArray[4] != ' ' && gameArray[0] == gameArray[4] && gameArray[4] == gameArray[8]) {
-            if (gameArray[4] == symbol) {
-                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
-            } else {
-                System.out.println("\n\nComputer ONE WINS THE GAME\n");
-            }
-            exitCode = '1';
-        } else if (gameArray[2] != ' ' && gameArray[2] == gameArray[4] && gameArray[4] == gameArray[6]) {
-            if (gameArray[2] == symbol) {
-                System.out.println("\n\nPLAYER ONE WINS THE GAME\n");
-            } else {
-                System.out.println("\n\n Computer ONE WINS THE GAME\n");
-            }
-            exitCode = '1';
-        }
 	}
 
 	public static void main(String args[]) {
@@ -240,7 +239,7 @@ public class TicTacToe {
 		toss = scanner.nextInt();
 		Random random1 = new Random();
 		wonToss = random1.nextInt(2);
-		
+
 	}
 
 }
