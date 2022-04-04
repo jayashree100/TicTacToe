@@ -228,6 +228,43 @@ public class TicTacToe {
 		}
 	}
 
+	public static void blockUser() {
+        if ((gameArray[0] == userTurn && gameArray[1] == userTurn) || (gameArray[0] == computerTurn && gameArray[1] == computerTurn)) {
+            gameArray[2] = computerTurn;
+        } else if (gameArray[3] == userTurn && gameArray[4] == userTurn) {
+            gameArray[5] = computerTurn;
+        } else if ((gameArray[6] == userTurn && gameArray[7] == userTurn) || (gameArray[6] == computerTurn && gameArray[7] == computerTurn)) {
+            gameArray[8] = computerTurn;
+        } else if ((gameArray[0] == userTurn && gameArray[3] == userTurn) || (gameArray[0] == computerTurn && gameArray[3] == computerTurn)) {
+            gameArray[6] = computerTurn;
+        } else if (gameArray[1] == userTurn && gameArray[4] == userTurn) {
+            gameArray[7] = computerTurn;
+        } else if ((gameArray[2] == userTurn && gameArray[5] == userTurn) || (gameArray[2] == computerTurn && gameArray[5] == computerTurn)) {
+            gameArray[8] = computerTurn;
+        } else if (gameArray[0] == userTurn && gameArray[4] == userTurn) {
+            gameArray[8] = computerTurn;
+        } else if (gameArray[2] == userTurn && gameArray[4] == userTurn) {
+            gameArray[6] = computerTurn;
+        } else if (gameArray[0] == userTurn && gameArray[2] == userTurn) {
+            gameArray[1] = computerTurn;
+        } else if (gameArray[3] == userTurn && gameArray[5] == userTurn) {
+            gameArray[4] = computerTurn;
+        } else if (gameArray[6] == userTurn && gameArray[8] == userTurn) {
+            gameArray[7] = computerTurn;
+        } else if (gameArray[0] == userTurn && gameArray[6] == userTurn) {
+            gameArray[3] = computerTurn;
+        } else if (gameArray[1] == userTurn && gameArray[7] == userTurn) {
+            gameArray[4] = computerTurn;
+        } else if (gameArray[2] == userTurn && gameArray[8] == userTurn) {
+            gameArray[5] = computerTurn;
+        } else if (gameArray[0] == userTurn && gameArray[8] == userTurn) {
+            gameArray[4] = computerTurn;
+        } else if (gameArray[2] == userTurn && gameArray[6] == userTurn) {
+            gameArray[4] = computerTurn;
+        } else
+            comLocation();
+    }
+
 	public static void main(String args[]) {
 		ticTacToe();
 		userTurn = user(scanner);
@@ -239,7 +276,45 @@ public class TicTacToe {
 		toss = scanner.nextInt();
 		Random random1 = new Random();
 		wonToss = random1.nextInt(2);
-
+		
+		if (wonToss == toss) {
+            System.out.println("You won the toss");
+            while (true) {
+                moveLocation();
+                System.out.println("Your board");
+                showBoard();
+                winner(userTurn);
+                if (exitCode == '1') {
+                    break;
+                }
+                comLocation();
+                System.out.println("Computer Board");
+                showBoard();
+                winner(computerTurn);
+                if (exitCode == '1') {
+                    break;
+                }
+            }
+        } else {
+            System.out.println("Computer won the toss");
+            while (true) {
+                comLocation();
+                System.out.println("Computer Board");
+                showBoard();
+                winner(computerTurn);
+                if (exitCode == '1') {
+                    break;
+                }
+                System.out.println("Your Turn");
+                moveLocation();
+                System.out.println("Your board");
+                showBoard();
+                winner(userTurn);
+                if (exitCode == '1') {
+                    break;
+                }
+           }
+        }
 	}
-
 }
+	
